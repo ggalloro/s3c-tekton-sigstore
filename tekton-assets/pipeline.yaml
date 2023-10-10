@@ -8,6 +8,19 @@ spec:
     - name: image-name
   workspaces:
     - name: source
+  results:
+    - name: git-url
+      description: Source code used to build the artifact.
+      value: $(tasks.git-clone.results.url)
+    - name: git-commit
+      description: The commit used to build the artifact.
+      value: $(tasks.git-clone.results.commit)
+    - name: image-url
+      description: The image url.
+      value: $(tasks.image-build.results.IMAGE_URL)
+    - name: image-digest
+      description: The image digest.
+      value: $(tasks.image-build.results.IMAGE_DIGEST)
   tasks:
     - name: git-clone
       taskRef:
