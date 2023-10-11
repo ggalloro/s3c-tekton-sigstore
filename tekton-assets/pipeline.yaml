@@ -8,13 +8,6 @@ spec:
     - name: image-name
   workspaces:
     - name: source
-  results:
-    - name: IMAGE_DIGEST
-      description: Digest of the image just built.
-      value: $(tasks.image-build.results.IMAGE_DIGEST)
-    - name: IMAGE_URL
-      description: URL of the image just built.
-      value: $(tasks.image-build.results.IMAGE_URL)
   tasks:
     - name: git-clone
       taskRef:
