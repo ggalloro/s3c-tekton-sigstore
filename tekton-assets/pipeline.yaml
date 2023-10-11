@@ -9,16 +9,12 @@ spec:
   workspaces:
     - name: source
   results:
-    - name: image-ARTIFACT_INPUTS
-      description: Source code used to build the artifact.
-      value:
-        uri: $(tasks.git-clone.results.url)
-        digest: sha1:$(tasks.git-clone.results.commit)
-    - name: image-ARTIFACT_OUTPUTS
-      description: The artifact that has been built.
-      value:
-        uri: $(tasks.image-build.results.IMAGE_URL)
-        digest: $(tasks.image-build.results.IMAGE_DIGEST)
+    - name: IMAGE_DIGEST
+      description: Digest of the image just built.
+      value: $(tasks.image-build.results.IMAGE_DIGEST)
+    - name: IMAGE_URL
+      description: URL of the image just built.
+      value: $(tasks.image-build.results.IMAGE_URL)
   tasks:
     - name: git-clone
       taskRef:
@@ -37,6 +33,10 @@ spec:
       params:
         - name: IMAGE
           value: $(params.image-name)
+        - name: CHAINS-GIT_COMMIT
+          value: "$(tasks.git-clone.results.commit)"
+        - name: CHAINS-GIT_URL
+          value: "$(tasks.git-clone.results.url)"
       workspaces:
         - name: source
           workspace: source
