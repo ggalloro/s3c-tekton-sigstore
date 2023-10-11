@@ -12,6 +12,7 @@ export KMS_URI="gcpkms://projects/${KEY_PROJECT}/locations/${LOCATION}/keyRings/
 export IDENTITY=https://kubernetes.io/namespaces/tekton-chains/serviceaccounts/tekton-chains-controller
 export ISSUER=https://container.googleapis.com/v1/projects/galloro-demos/locations/europe-west1/clusters/gke-cluster
 export IMAGE=europe-west1-docker.pkg.dev/galloro-demos/tektoncd/javasample
+export GIT_URL=https://github.com/ggalloro/s3c-tekton-sigstore
 export BUILDER=image-builder
 export BUILDER_SA=image-builder@galloro-demos.iam.gserviceaccount.com
 

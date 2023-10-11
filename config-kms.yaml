@@ -9,13 +9,13 @@ metadata:
 data:
   artifacts.oci.format: simplesigning
   artifacts.oci.signer: kms
-  artifacts.oci.storage: grafeas,oci
+  artifacts.oci.storage: "" # disabled
   artifacts.pipelinerun.format: in-toto
   artifacts.pipelinerun.signer: kms
-  artifacts.pipelinerun.storage: grafeas,oci
+  artifacts.pipelinerun.storage: grafeas
   artifacts.taskrun.format: in-toto
   artifacts.taskrun.signer: kms
-  artifacts.taskrun.storage: grafeas,oci
+  artifacts.taskrun.storage: "" # disabled
   signers.kms.kmsref: gcpkms://projects/galloro-demos/locations/europe-west1/keyRings/binauthz/cryptoKeys/tekton-chains/cryptoKeyVersions/1
   signers.x509.fulcio.enabled: "false"
   storage.grafeas.projectid: galloro-demos

@@ -22,8 +22,6 @@ spec:
     - name: CONTEXT
       description: The build context used by Kaniko.
       default: $(workspaces.source.path)/sample-app/
-    - name: commit
-      description: Short Commit SHA.
   workspaces:
     - name: source
       description: Holds the context and Dockerfile
@@ -39,7 +37,7 @@ spec:
       args:
         - --dockerfile=$(params.DOCKERFILE)
         - --context=$(params.CONTEXT) # The user does not need to care the workspace and the source.
-        - --destination=$(params.IMAGE):$(params.commit)
+        - --destination=$(params.IMAGE)
         - --digest-file=$(results.IMAGE_DIGEST.path)
         - --cache=true
       # kaniko assumes it is running as root, which means this example fails on platforms
@@ -51,5 +49,5 @@ spec:
       image: docker.io/library/bash:5.1.4@sha256:b208215a4655538be652b2769d82e576bc4d0a2bb132144c060efc5be8c3f5d6
       script: |
         set -e
-        image="$(params.IMAGE):$(params.commit)"
+        image="$(params.IMAGE)"
         echo -n "${image}" | tee "$(results.IMAGE_URL.path)"
