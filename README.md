@@ -15,4 +15,4 @@
 19. cosign verify --certificate-identity=$IDENTITY --certificate-oidc-issuer=$ISSUER $IMAGE | jq
 20. cosign verify-attestation --certificate-identity=$IDENTITY --certificate-oidc-issuer=$ISSUER --type slsaprovenance $IMAGE | jq
 22. rekor-cli search --sha digest
-24. rekor-cli get --uuid UUID --format json | jq -r .Attestation | jq
+24. rekor-cli get --uuid $UUID --format json | jq -r .Attestation | jq
