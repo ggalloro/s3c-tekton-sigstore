@@ -17,7 +17,7 @@ data:
   artifacts.taskrun.signer: kms
   artifacts.pipelinerun.enable-deep-inspection: "true"
   artifacts.taskrun.storage: "" # disabled
-  signers.kms.kmsref: gcpkms://projects/galloro-demos/locations/europe-west1/keyRings/binauthz/cryptoKeys/tekton-chains/cryptoKeyVersions/1
+  signers.kms.kmsref: gcpkms://projects/${PROJECT_ID}/locations/${LOCATION}/keyRings/${KEYRING}/cryptoKeys/${KEY}/cryptoKeyVersions/1
   signers.x509.fulcio.enabled: "false"
-  storage.grafeas.projectid: galloro-demos
+  storage.grafeas.projectid: $PROJECT_ID
   transparency.enabled: "false"
