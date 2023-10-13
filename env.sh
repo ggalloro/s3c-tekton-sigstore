@@ -15,8 +15,8 @@ export IMAGE=europe-west1-docker.pkg.dev/galloro-demos/tektoncd/sample-app
 export GIT_URL=https://github.com/ggalloro/s3c-tekton-sigstore
 export BUILDER=image-builder
 export BUILDER_SA=image-builder@galloro-demos.iam.gserviceaccount.com
-kubectl delete -f '/Users/galloro/s3c-tekton-sigstore/tekton-assets'
 tkn pr delete --all -f && tkn tr delete --all -f
+kubectl delete -f '/Users/galloro/s3c-tekton-sigstore/tekton-assets'
 kubectl apply -f '/Users/galloro/s3c-tekton-sigstore/config-kms.yaml'
 kubectl delete po -n tekton-chains -l app=tekton-chains-controller
 
