@@ -1,7 +1,7 @@
 # s3c-tekton-sigstore
 
 ## Pipelines
-1. kubectl apply -f '/Users/galloro/s3c-tekton-sigstore/tekton-assets'
+1. kubectl apply -f tekton-assets
 2. Echo $GIT_URL
 3. Echo $IMAGE
 4. tkn pipeline start pipeline-clone-and-build --workspace name=source,claimName=source-pvc -s image-builder  --param image-name=$IMAGE --param git-url=$GIT_URL  --showlog
